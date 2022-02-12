@@ -1,0 +1,39 @@
+<div class="container" >
+  <br>
+  <form class="row" personasForm="ngForm" (ngSubmit)="guardarDatos()">
+    <div class="col-md-6">
+      <label>Ingrese un nombre</label>
+      <input type="text" class="form-control form-control-sm"  name="nombre"  #nombre='ngModel' ngModel nombre="true"   [(ngModel)]="persona.nombre" required>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="formFileSm" class="form-label"></label>
+        <input class="form-control form-control-sm" id="formFileSm" type="file"  name="documento"  #documento='ngModel' ngModel documento="true"   [(ngModel)]="persona.documento"  required>
+      </div>
+    </div>
+    <div class="col-12">
+      <input type="submit" class="btn btn-primary btn-sm" value="Guardar">
+    </div>
+  </form>
+  <br>
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Documento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let persona of personas.slice(0,10);" >
+            <td>{{persona.first}} {{persona.last}}</td>
+            <td>{{persona.email}}</td>
+            <td>{{persona.address}}</td>
+            <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
